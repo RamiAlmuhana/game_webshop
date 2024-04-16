@@ -1,6 +1,5 @@
 package com.example.gamewebshop.dao;
 
-import com.example.gamewebshop.models.CustomUser;
 import com.example.gamewebshop.models.PlacedOrder;
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
@@ -15,12 +14,12 @@ import java.util.Optional;
 public class OrderDAO {
     private final OrderRepository orderRepository;
     private final UserRepository userRepository;
-    private final GamesRepository gamesRepository;
+    private final ProductRepository productRepository;
 
-    public OrderDAO(OrderRepository orderRepository, UserRepository userRepository, GamesRepository gamesRepository) {
+    public OrderDAO(OrderRepository orderRepository, UserRepository userRepository, ProductRepository productRepository) {
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
-        this.gamesRepository = gamesRepository;
+        this.productRepository = productRepository;
     }
 
     public List<PlacedOrder> getAllOrders(){

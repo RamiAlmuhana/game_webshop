@@ -9,7 +9,7 @@ import java.util.Optional;
 
 //maps the product class to the database using the Long type as default of ID's
 @Repository
-public interface GamesRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Optional<List<Product>> findByCategoryId(long id);
     Optional<Product> findById(long id);

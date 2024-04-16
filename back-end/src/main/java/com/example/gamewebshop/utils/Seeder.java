@@ -2,7 +2,7 @@ package com.example.gamewebshop.utils;
 
 import com.example.gamewebshop.dao.OrderDAO;
 import com.example.gamewebshop.dao.ProductDAO;
-import com.example.gamewebshop.dao.GamesRepository;
+import com.example.gamewebshop.dao.ProductRepository;
 import com.example.gamewebshop.dao.UserRepository;
 import com.example.gamewebshop.models.Category;
 import com.example.gamewebshop.models.CustomUser;
@@ -17,14 +17,14 @@ public class Seeder {
     private ProductDAO productDAO;
     private UserRepository userRepository;
     private OrderDAO orderDAO;
-    private GamesRepository gamesRepository;
+    private ProductRepository productRepository;
 
 
-    public Seeder(ProductDAO productDAO, UserRepository userRepository, OrderDAO orderDAO, GamesRepository gamesRepository) {
+    public Seeder(ProductDAO productDAO, UserRepository userRepository, OrderDAO orderDAO, ProductRepository productRepository) {
         this.productDAO = productDAO;
         this.userRepository = userRepository;
         this.orderDAO = orderDAO;
-        this.gamesRepository = gamesRepository;
+        this.productRepository = productRepository;
     }
 
     @EventListener

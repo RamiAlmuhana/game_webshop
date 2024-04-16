@@ -13,20 +13,20 @@ import java.util.Optional;
 @Component
 public class ProductDAO {
 
-    private final GamesRepository gamesRepository;
+    private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
 
-    public ProductDAO(GamesRepository repository, CategoryRepository category) {
-        this.gamesRepository = repository;
+    public ProductDAO(ProductRepository repository, CategoryRepository category) {
+        this.productRepository = repository;
         this.categoryRepository = category;
     }
 
     public List<Product> getAllProducts(){
-        return this.gamesRepository.findAll();
+        return this.productRepository.findAll();
     }
 
     public Product getProductById(long id){
-        Optional<Product> product = this.gamesRepository.findById(id);
+        Optional<Product> product = this.productRepository.findById(id);
 
         return product.orElseThrow(() -> new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "No product found with that id"
@@ -34,7 +34,7 @@ public class ProductDAO {
     }
 
     public List<Product> getAllProductsByCategory(long id){
-        Optional<List<Product>> products =this.gamesRepository.findByCategoryId(id);
+        Optional<List<Product>> products =this.productRepository.findByCategoryId(id);
 
         if (products.get().isEmpty()){
             throw new ResponseStatusException(
@@ -49,16 +49,16 @@ public class ProductDAO {
     @Transactional
     public void createProduct(Product product){
         this.categoryRepository.save(product.getCategory());
-        this.gamesRepository.save(product);
+        this.productRepository.save(product);
     }
 
     public void updateProduct(ProductDTO productDTO, Long id){
-        Optional<Product> productOptional = this.gamesRepository.findById(id);
+        Optional<Product> productOptional = this.productRepository.findById(id);
         if (productOptional.isPresent()) {
             Product product = productOptional.get();
             product.setDescription(productDTO.getDescription());
             product.setName(productDTO.getName());
-            this.gamesRepository.save(product);
+            this.productRepository.save(product);
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found with id: " + id);
         }
@@ -66,7 +66,7 @@ public class ProductDAO {
 
 
     public void deleteById(Long id) {
-        this.gamesRepository.deleteById(id);
+        this.productRepository.deleteById(id);
     }
 
 
