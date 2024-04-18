@@ -53,24 +53,6 @@ export class ProductDetailComponent implements OnInit {
       });
   }
 
-  // onSubmit() {
-  //   // Controleer of de invoervelden niet leeg zijn voordat je een opmerking toevoegt
-  //   if (this.newComment.name.trim() === '' || this.newComment.comment.trim() === '') {
-  //     this.snackbarService.openSnackBar('Velden mogen niet leeg zijn!');
-  //     return;
-  //   }
-  //
-  //   this.newComment.productId = this.productId;
-  //   // Verzend het newComment-object naar de backend
-  //   this.commentService.addComment(this.newComment)
-  //     .subscribe(() => {
-  //       this.loadComments(); // Herlaad de opmerkingen na toevoeging
-  //       // Reset het nieuwe opmerkingenveld
-  //       this.newComment = { productId: 0, name: '', comment: '' };
-  //     });
-  // }
-
-
   submitComment() {
     // Retrieve the values from the form
     const name = (document.getElementById('commentName') as HTMLInputElement).value;
