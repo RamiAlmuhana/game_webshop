@@ -1,20 +1,47 @@
 <section class="py-5 bg-light">
-  <div class="container px-4 px-lg-5 my-5">
-    <div class="row gx-4 gx-lg-5 align-items-center">
-      <div class="col-md-6 mb-5 mb-md-0">
-        <div class="product-image-container bg-white p-4 shadow-sm rounded">
-          <img class="card-img-top img-fluid" src="{{ product.imgURL }}" alt="Product Image"/>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img class="img-fluid rounded" src="{{ product.imgURL }}" alt="Product Image"/>
       </div>
       <div class="col-md-6">
-        <div class="product-details-container bg-white p-4 shadow-sm rounded">
-          <h1 class="display-4 fw-bold mb-4">{{ product.name }}</h1>
-          <p class="fw-bold mb-2 lead">Description:</p>
-          <p class="lead mb-4">{{ product.description }}</p>
-          <p class="lead mb-4"><span class="fw-bold">Price:</span> {{ product.price | currency: 'EUR' }}</p>
-          <button (click)="onBuyProduct(product)" class="btn btn-primary">Buy Now</button>
+        <div class="bg-white p-4 rounded">
+          <h1 class="display-4 fw-bold">{{ product.name }}</h1>
+          <p class="lead">{{ product.description }}</p>
+          <p class="lead"><span class="fw-bold">Price:</span> {{ product.price | currency: 'EUR' }}</p>
+          <button (click)="onBuyProduct(product)" class="btn btn-primary">Add to Cart</button>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<section class="comment-section bg-light">
+  <div class="container">
+    <form class="mb-4">
+      <h2 class="fw-bold mb-4">Leave a Review</h2>
+      <div class="mb-3">
+        <label for="commentName" class="form-label">Your Name</label>
+        <input type="text" class="form-control" id="commentName" required>
+      </div>
+      <div class="mb-3">
+        <label for="commentContent" class="form-label">Your Review</label>
+        <textarea class="form-control" id="commentContent" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <h2 class="fw-bold mb-4">Customer Reviews</h2>
+    <div class="comment">
+      <div class="d-flex align-items-center mb-3 border-bottom">
+        <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" alt="User Avatar" class="rounded-circle me-3 mb-4" style="width: 50px;">
+        <div class="mb-4">
+          <p class="fw-bold mb-0">User456</p>
+          <p class="mb-0">Great product! Highly recommended.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
