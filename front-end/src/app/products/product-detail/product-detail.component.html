@@ -18,7 +18,7 @@
 
 <section class="comment-section bg-light">
   <div class="container">
-    <form class="mb-4">
+    <form class="mb-4" (ngSubmit)="submitComment()">
       <h2 class="fw-bold mb-4">Leave a Review</h2>
       <div class="mb-3">
         <label for="commentName" class="form-label">Your Name</label>
@@ -33,15 +33,14 @@
 
     <h2 class="fw-bold mb-4">Customer Reviews</h2>
     <div class="comment">
-      <div class="d-flex align-items-center mb-3 border-bottom">
+      <div class="d-flex align-items-center mb-3 border-bottom" *ngFor="let comment of comments">
         <img src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg" alt="User Avatar" class="rounded-circle me-3 mb-4" style="width: 50px;">
         <div class="mb-4">
-          <p class="fw-bold mb-0">User456</p>
-          <p class="mb-0">Great product! Highly recommended.</p>
+          <p class="fw-bold mb-0">{{ comment.name }}</p>
+          <p class="mb-0">{{ comment.comment }}</p>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
