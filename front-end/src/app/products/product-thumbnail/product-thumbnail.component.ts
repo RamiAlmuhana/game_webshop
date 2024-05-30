@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import {Product} from '../../models/product.model';
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-product-thumbnail',
@@ -10,8 +11,9 @@ import {Product} from '../../models/product.model';
 export class ProductThumbnailComponent {
   @Input() public product!: Product;
   @Output() public onBuyProduct: EventEmitter<Product> = new EventEmitter<Product>();
-
+  constructor(private messageService: MessageService) {}
   public buyProduct(product: Product) {
     this.onBuyProduct.emit(product);
+    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
   }
 }

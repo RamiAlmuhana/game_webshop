@@ -6,6 +6,7 @@ import {ProductThumbnailComponent} from './product-thumbnail/product-thumbnail.c
 import {ProductDetailComponent} from './product-detail/product-detail.component';
 
 import {FormsModule} from "@angular/forms";
+import {ToastModule} from "primeng/toast";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {FormsModule} from "@angular/forms";
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    ToastModule
   ],
   exports: [
     ProductsComponent

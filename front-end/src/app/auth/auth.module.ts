@@ -4,6 +4,7 @@ import {LoginComponent} from './login/login.component';
 import {RegisterComponent} from './register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {ToastModule} from "primeng/toast";
 
 
 @NgModule({
@@ -11,11 +12,12 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     LoginComponent,
     RegisterComponent
   ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ]
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        ToastModule
+    ]
 })
 export class AuthModule {
 }

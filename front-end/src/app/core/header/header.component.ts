@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit{
     this.checkLoginState();
     this.checkIsAdmin();
     this.cartService.$productInCart.subscribe((products: Product[]) => {
-      this.amountOfProducts = products.length;
+      this.amountOfProducts = products.reduce((total, product) => total + product.amount, 0);
     })
   }
 
